@@ -8,7 +8,19 @@
 		min_lib_ver="4.5"
 		core_class="Core.lua"
 	>
-    <AssetUpdates provider="github" custom_name="GitHub Update" branch="master" id="Luffyyy/BeardLib-Editor" dont_delete="true"/>
+    <AssetUpdates provider="github" custom_name="GitHub Update" branch="master" id="Makowo/BeardLib-Editor" dont_delete="true">
+        <!-- 
+        Have a table of optional versions so you could have multiple 
+        that could be selected in a dropdown in mod options with no restrictions on naming
+        -->
+        <optional_versions>
+            <alpha provider="github" custom_name="GitHub Update" branch="testinggithubupdates" id="Makowo/BeardLib-Editor" dont_delete="true" />
+            <beta provider="github" custom_name="GitHub Update" branch="testing-beta" id="Makowo/BeardLib-Editor" dont_delete="true" />
+            <release_candidate provider="github" custom_name="GitHub Update" release="true" version="2" id="Makowo/BeardLib-Editor" dont_delete="true" />
+            <latest provider="github" custom_name="GitHub Update" branch="master" id="Makowo/BeardLib-Editor" dont_delete="true" />
+            <latest-dev provider="github" custom_name="GitHub Update" branch="dev" id="Makowo/BeardLib-Editor" dont_delete="true" />
+        </optional_versions>
+    </AssetUpdates>
     <AssetUpdates id="25270" provider="modworkshop" custom_name="Data Files" folder_name="Data" install_directory="$ModPath$" name="DataFilesUpdate"/>
     <load_first Options="true"/>
     <Classes directory="Classes">
