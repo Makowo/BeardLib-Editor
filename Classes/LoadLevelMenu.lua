@@ -19,7 +19,7 @@ function LoadLevelMenu:init(data)
 	local filters = self:holder("Filters", {align_method = "grid", inherit_values = {size_by_text = true, offset = 0}})
 	local w = filters:tickbox("Vanilla", ClassClbk(self, "load_levels")):Width()
 	w = w + filters:tickbox("Custom", ClassClbk(self, "load_levels"), true):Width()
-	w = w + filters:tickbox("Narratives", ClassClbk(self, "load_levels"), true):Width()
+	--w = w + filters:tickbox("Narratives", ClassClbk(self, "load_levels"), true):Width()
 	filters:textbox("Search", ClassClbk(self, "search_levels"), nil, {w = filters:ItemsWidth() - w, index = 1, control_slice = 0.85, offset = 0})
 
 	local load_options = self:pan("LoadOptions", {align_method = "grid", auto_height = true, inherit_values = {offset = 0}})
@@ -46,7 +46,7 @@ function LoadLevelMenu:Destroy()
 	return {
 		vanilla = filters:GetItemValue("Vanilla"),
 		custom = filters:GetItemValue("Custom"),
-		narratives = filters:GetItemValue("Narratives"),
+		--narratives = filters:GetItemValue("Narratives"),
 		difficulty = load_options:GetItemValue("Difficulty"),
 		one_down = load_options:GetItemValue("OneDown"),
 		safemode = load_options:GetItemValue("Safemode"),
@@ -59,7 +59,7 @@ function LoadLevelMenu:search_levels(item)
 	item = item or self:GetItem("Search")
 	local search = item:Value():escape_special():lower()
 	local searching = search:len() > 0
-	if self:GetItemValue("Narratives") then
+	--[[if self:GetItemValue("Narratives") then
 		for _, menu in pairs(self._levels:Items()) do
 			if menu.type_name == "Holder" then
 				for _, item in pairs(menu:Items()) do
@@ -79,7 +79,7 @@ function LoadLevelMenu:search_levels(item)
 				end
 			end
 		end
-	else
+	else]]
 		for _, btn in pairs(self._levels:Items()) do
 			if not searching or btn.text:lower():find(search) then
 				btn:SetVisible(true)
@@ -87,7 +87,7 @@ function LoadLevelMenu:search_levels(item)
 				btn:SetVisible(false)
 			end
 		end
-	end
+	--end
 	self._levels:AlignItems(true)
 end
 

@@ -114,12 +114,12 @@ function ItemExt:Pasta1(name, callback, o)
 end
 
 function ItemExt:Pasta2(name, callback, value, o)
-	BeardLib:log("help me")
+	--BeardLib:log("help me")
 	return table.merge({name = name, on_callback = callback, text = string.pretty2(name), value = value}, o)
 end
 
 function ItemExt:tickbox(...)
-	BeardLib:log("hewwo")
+	--BeardLib:log("hewwo")
 	return self:Toggle(ItemExt:Pasta2(...))
 end
 
